@@ -5,7 +5,7 @@ import { CatsController } from './cats/cats.controller';
 import { CatsService } from './cats/cats.service';
 import { TransactionsController } from './transactions/transactions.controller';
 import { ScheduleModule } from '@nestjs/schedule';
-import { TransactionsService } from './cats/transactions.service';
+import { TransactionsService } from './transactions/transactions.service';
 import { ConfigModule } from '@nestjs/config';
 
 @Module({
