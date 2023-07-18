@@ -6,9 +6,10 @@ import { CatsService } from './cats/cats.service';
 import { TransactionsController } from './transactions/transactions.controller';
 import { ScheduleModule } from '@nestjs/schedule';
 import { TransactionsService } from './cats/transactions.service';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [ScheduleModule.forRoot()],
+  imports: [ScheduleModule.forRoot(), ConfigModule.forRoot()],
   controllers: [HellWorldController, CatsController, TransactionsController],
   providers: [HellWorldService, CatsService, TransactionsService],
 })
