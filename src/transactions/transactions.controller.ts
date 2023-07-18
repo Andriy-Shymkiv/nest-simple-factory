@@ -5,15 +5,16 @@ import { TransactionsService } from 'src/cats/transactions.service';
 @Controller()
 export class TransactionsController {
   constructor(private readonly transactionsService: TransactionsService) {}
-  // every 10 seconds
-  @Cron(CronExpression.EVERY_10_SECONDS)
-  async handleCron() {
+
+  // execute cron job every 10 seconds
+  @Cron(CronExpression.EVERY_10_SECONDS) // for testing purposes
+  async handleCron(): Promise<void> {
     console.log('Running the indexer service...');
     await this.transactionsService.getDunaTransactions();
   }
 
   @Get('/transactions-history')
-  getData() {
+  getData(): { data: any[] } | { error: string } {
     if (this.transactionsService.transactionsHistory) {
       return { data: this.transactionsService.transactionsHistory };
     } else {
