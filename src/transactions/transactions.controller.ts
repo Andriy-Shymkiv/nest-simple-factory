@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 import { Cron, CronExpression } from '@nestjs/schedule';
-import { TransactionsService } from 'src/cats/transactions.service';
+import { TransactionsService } from 'src/transactions/transactions.service';
 
 @Controller()
 export class TransactionsController {
